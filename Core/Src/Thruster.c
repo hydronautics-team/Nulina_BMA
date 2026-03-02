@@ -50,19 +50,3 @@ void Thruster_Set_Speed(uint8_t* speed)
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, speed[3]);//5
 
 }
-
-void Thruster_Set_Perc(uint8_t *speed)
-{
-//	int sec_speed[8];
-//	for(int i = 0;i<8;i++)
-//	{
-//		if((speed[i]<100)&&(speed[i]>-100))
-//			sec_speed[i] = speed[i]*kpercsec+150;
-//		else
-//			sec_speed[i] = 150;
-//	}
-//	sec_speed[4] = 200;
-
-	Thruster_Set_Speed(speed);
-
-}

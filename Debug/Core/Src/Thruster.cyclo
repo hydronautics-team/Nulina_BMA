@@ -1,4 +1,3 @@
 ../Core/Src/Thruster.c:8:6:Thruster_Init	1
 ../Core/Src/Thruster.c:24:6:Thruster_Stop	1
 ../Core/Src/Thruster.c:40:6:Thruster_Set_Speed	1
-../Core/Src/Thruster.c:54:6:Thruster_Set_Perc	1

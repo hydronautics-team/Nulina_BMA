@@ -16,13 +16,15 @@
 
 #define PACKET_SIZE           (HEADER_SIZE + DATA_SIZE + CRC_SIZE)
 
-#define RX_BUFFER_SIZE        128
-#define RING_BUFFER_SIZE      256
+#define RX_BUFFER_SIZE        512
+#define RING_BUFFER_SIZE      1024
 
 /* Function Prototypes */
 void ByteProtocol_Init(void);
 void ByteProtocol_enter(uint8_t motor_idx,uint8_t rpm);
 uint8_t Calculate_CRC8(const uint8_t *data, uint16_t length);
+
+extern uint8_t data[MOTORS_COUNT];
 
 
 #endif

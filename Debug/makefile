@@ -52,6 +52,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 nir_vma.list \
 
+OBJCOPY_HEX += \
+nir_vma.hex \
+
 
 # All Target
 all: main-build
@@ -75,12 +78,17 @@ nir_vma.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+nir_vma.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "nir_vma.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) default.size.stdout nir_vma.elf nir_vma.list nir_vma.map
+	-$(RM) default.size.stdout nir_vma.elf nir_vma.hex nir_vma.list nir_vma.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
